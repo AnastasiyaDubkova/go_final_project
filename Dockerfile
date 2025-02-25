@@ -11,11 +11,9 @@ COPY . .
 RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o /my_app
 
 # При необходимости можно использовать пер.окружения, они перезатрут данные из файла .env
-ENV TODO_PORT=
-ENV TODO_DBFILE=
+# ENV TODO_PORT=7540
+# ENV TODO_DBFILE=./scheduler.db
 
-# НЕ будем использовать конструкцию EXPOSE, тк порт может изменяться из пер.окружения и/или .env
-# вместо этого опишем запуск команды `docker run` в README.md
-# EXPOSE 7540
+EXPOSE 7540
 
 CMD ["/my_app"]
