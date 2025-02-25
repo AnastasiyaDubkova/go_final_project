@@ -14,7 +14,7 @@ RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o /my_app
 ENV TODO_PORT=
 ENV TODO_DBFILE=
 
-# НЕ будем использовать конструкцию EXPOSE, тк пор может изменяться из пер.окружения и/или .env
+# НЕ будем использовать конструкцию EXPOSE, тк порт может изменяться из пер.окружения и/или .env
 # вместо этого опишем запуск команды `docker run` в README.md
 # EXPOSE 7540
 

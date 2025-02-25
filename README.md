@@ -55,6 +55,7 @@ $ go run main.go
 
 ## Запуск на удаленном сервере
 Для запуска на удаленом сервере, в системе должно быть установлено ПО Docker, и образ проекта.
+Dockerfile уже создан в папке проекта.
 
 ### Сборка образа проекта (Docker)
 Для сборки образа выполните команды:
@@ -78,6 +79,19 @@ $ docker run -d -p 7540:7540 my-app:v1
 # Инструкция по запуску тестов
 
 ## Конфигурация
+Параметры в tests/settings.go, которые следует использовать:
+
+```bash
+#!/bin/bash
+package tests
+
+var Port = 7540
+var DBFile = "../scheduler.db"
+var FullNextDate = false
+var Search = true
+var Token = ``
+```
+
 
 ## Запуск
 Тесты необходимо запускать при запущенном сервере.
@@ -86,12 +100,4 @@ $ docker run -d -p 7540:7540 my-app:v1
 ```bash
 #!/bin/bash
 $ go test ./tests
-```
-
-# Сборка образа проекта (Docker)
-
-```bash
-#!/bin/bash
-$ cd PATH_TO_PROJECT
-$ docker build --tag todo_project_dubkova:v1 .
 ```
